@@ -31,21 +31,13 @@ async function disconnect() {
 async function getGeoData() {
   try {
     await connect();
-    // const res = await client.query(`SELECT id, ST_AsGeoJSON(geom) AS geometry
-    //   FROM public.pipes
-    //   WHERE ST_Intersects(
-    //     geom,
-    //     ST_MakeEnvelope(-180, -90, 180, 90, 4326)  -- Adjust coordinates as needed
-    //   )
-    //   LIMIT 10`);
-    // Query for full GeoJSON file as a FeatureCollection
+
     const res = await client.query(`
         SELECT jsonb_build_object(
           'type', 'FeatureCollection',
           'features', jsonb_agg(
             jsonb_build_object(
               'type', 'Feature',
-              'id', id,
               'geometry', ST_AsGeoJSON(geom)::jsonb,
               'properties', to_jsonb(row) - 'geom'
             )
@@ -56,7 +48,10 @@ async function getGeoData() {
 
     const geoJSON = res.rows[0].geojson;
 
-    fs.writeFileSync("output.geojson", JSON.stringify(geoJSON, null, 2));
+    fs.writeFileSync(
+      "./output/output.geojson",
+      JSON.stringify(geoJSON, null, 2)
+    );
     console.log("GeoJSON data written to output.geojson");
 
     return geoJSON;

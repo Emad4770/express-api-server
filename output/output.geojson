@@ -2,7 +2,6 @@
   "type": "FeatureCollection",
   "features": [
     {
-      "id": 1,
       "type": "Feature",
       "geometry": {
         "type": "MultiLineString",
@@ -21,13 +20,11 @@
       },
       "properties": {
         "id": 1,
-        "pipe_id": null,
         "diameter": 23,
         "leak_prob": 0.9
       }
     },
     {
-      "id": 2,
       "type": "Feature",
       "geometry": {
         "type": "MultiLineString",
@@ -46,13 +43,11 @@
       },
       "properties": {
         "id": 2,
-        "pipe_id": null,
         "diameter": 42,
         "leak_prob": 0.5
       }
     },
     {
-      "id": 3,
       "type": "Feature",
       "geometry": {
         "type": "MultiLineString",
@@ -71,13 +66,11 @@
       },
       "properties": {
         "id": 3,
-        "pipe_id": null,
         "diameter": 12,
         "leak_prob": 0.35
       }
     },
     {
-      "id": 4,
       "type": "Feature",
       "geometry": {
         "type": "MultiLineString",
@@ -96,13 +89,11 @@
       },
       "properties": {
         "id": 4,
-        "pipe_id": null,
         "diameter": 12,
         "leak_prob": 0.13
       }
     },
     {
-      "id": 5,
       "type": "Feature",
       "geometry": {
         "type": "MultiLineString",
@@ -121,7 +112,6 @@
       },
       "properties": {
         "id": 5,
-        "pipe_id": null,
         "diameter": 12,
         "leak_prob": 0.25
       }
