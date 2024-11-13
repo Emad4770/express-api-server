@@ -31,7 +31,7 @@ async function disconnect() {
 async function getGeoData() {
   try {
     await connect();
-    const res = await client.query(`SELECT id, ST_AsText(geom) AS geometry
+    const res = await client.query(`SELECT id, ST_AsGeoJSON(geom) AS geometry
       FROM public.pipes
       WHERE ST_Intersects(
         geom,
