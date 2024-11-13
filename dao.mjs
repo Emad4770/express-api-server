@@ -10,28 +10,11 @@ const client = new pg.Client({
   database: 'postgres',
 });
 
-async function connect() {
-  try {
-    await client.connect();
-    console.log('Connected to the database');
-  } catch (err) {
-    console.error('Error connecting to the database', err.stack);
-  }
-}
-
-async function disconnect() {
-  try {
-    await client.end();
-    console.log('Disconnected from the database');
-  } catch (err) {
-    console.error('Error disconnecting from the database', err.stack);
-  }
-}
-
 async function getGeoData() {
-  try {
-    await connect();
+  const client = new pg.Client({ connectionString });
+  await client.connect();
 
+  try {
     const res = await client.query(`
         SELECT jsonb_build_object(
           'type', 'FeatureCollection',
@@ -48,15 +31,17 @@ async function getGeoData() {
 
     const geoJSON = res.rows[0].geojson;
 
-    fs.writeFileSync(
-      './output/output.geojson',
-      JSON.stringify(geoJSON, null, 2)
-    );
-    console.log('GeoJSON data written to output.geojson');
+    // fs.writeFileSync(
+    //   './output/output.geojson',
+    //   JSON.stringify(geoJSON, null, 2)
+    // );
+    // console.log('GeoJSON data written to output.geojson');
 
     return geoJSON;
   } catch (err) {
     console.error('Error executing query', err.stack);
+  } finally {
+    await client.end();
   }
 }
 

@@ -8,29 +8,6 @@
         "coordinates": [
           [
             [
-              7.629523983,
-              45.094336581
-            ],
-            [
-              7.736854027,
-              45.07590897
-            ]
-          ]
-        ]
-      },
-      "properties": {
-        "id": 1,
-        "diameter": 23,
-        "leak_prob": 0.9
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "MultiLineString",
-        "coordinates": [
-          [
-            [
               7.606650366,
               45.068867639
             ],
@@ -100,6 +77,29 @@
         "coordinates": [
           [
             [
+              7.629523983,
+              45.094336581
+            ],
+            [
+              7.736854027,
+              45.07590897
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "id": 1,
+        "diameter": 23,
+        "leak_prob": 0.9
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "MultiLineString",
+        "coordinates": [
+          [
+            [
               7.551812338,
               44.972687476
             ],
@@ -113,7 +113,7 @@
       "properties": {
         "id": 5,
         "diameter": 12,
-        "leak_prob": 0.25
+        "leak_prob": 0.75
       }
     }
   ]
