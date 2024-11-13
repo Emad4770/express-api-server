@@ -1,0 +1,130 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "id": 1,
+      "type": "Feature",
+      "geometry": {
+        "type": "MultiLineString",
+        "coordinates": [
+          [
+            [
+              7.629523983,
+              45.094336581
+            ],
+            [
+              7.736854027,
+              45.07590897
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "id": 1,
+        "pipe_id": null,
+        "diameter": 23,
+        "leak_prob": 0.9
+      }
+    },
+    {
+      "id": 2,
+      "type": "Feature",
+      "geometry": {
+        "type": "MultiLineString",
+        "coordinates": [
+          [
+            [
+              7.606650366,
+              45.068867639
+            ],
+            [
+              7.722777956,
+              45.045252139
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "id": 2,
+        "pipe_id": null,
+        "diameter": 42,
+        "leak_prob": 0.5
+      }
+    },
+    {
+      "id": 3,
+      "type": "Feature",
+      "geometry": {
+        "type": "MultiLineString",
+        "coordinates": [
+          [
+            [
+              7.590521535,
+              45.032404528
+            ],
+            [
+              7.74711783,
+              45.014993484
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "id": 3,
+        "pipe_id": null,
+        "diameter": 12,
+        "leak_prob": 0.35
+      }
+    },
+    {
+      "id": 4,
+      "type": "Feature",
+      "geometry": {
+        "type": "MultiLineString",
+        "coordinates": [
+          [
+            [
+              7.578204972,
+              45.006285977
+            ],
+            [
+              7.772923961,
+              45.002553783
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "id": 4,
+        "pipe_id": null,
+        "diameter": 12,
+        "leak_prob": 0.13
+      }
+    },
+    {
+      "id": 5,
+      "type": "Feature",
+      "geometry": {
+        "type": "MultiLineString",
+        "coordinates": [
+          [
+            [
+              7.551812338,
+              44.972687476
+            ],
+            [
+              7.794038068,
+              44.976836505
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "id": 5,
+        "pipe_id": null,
+        "diameter": 12,
+        "leak_prob": 0.25
+      }
+    }
+  ]
+}
