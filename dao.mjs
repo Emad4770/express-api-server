@@ -60,7 +60,9 @@ async function getGeoData() {
   }
 }
 
-getGeoData().then((data) => {
-  console.log(data);
-  disconnect();
-});
+// getGeoData().then((data) => {
+//   console.log(data);
+//   disconnect();
+// });
+
+export default { getGeoData };
