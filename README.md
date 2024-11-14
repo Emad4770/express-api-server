@@ -87,9 +87,9 @@ The server will run on [http://localhost:3000](http://localhost:3000)
 - `express`: ^4.21.1 - Web server framework
 - `pg`: ^8.13.1 - PostgreSQL client
 - `cors`: ^2.8.5 - Cross-origin resource sharing middleware
-- `nodemon`: ^3.1.7 - Development server with auto-reload
 
 ### Development Dependencies
+- `nodemon`: ^3.1.7 - Development server with auto-reload
 - `eslint`: ^9.14.0 - Code linting
 - `prettier`: ^3.3.3 - Code formatting
 - Additional ESLint and Prettier configuration packages
