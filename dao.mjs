@@ -2,16 +2,16 @@ import pg from 'pg';
 import fs from 'fs';
 
 // Database connection details
-const client = new pg.Client({
+const connectionParams = {
   host: '127.0.0.1',
   port: 5432,
   user: 'postgres',
   password: 'admin',
   database: 'postgres',
-});
+};
 
 async function getGeoData() {
-  const client = new pg.Client({ connectionString });
+  const client = new pg.Client(connectionParams);
   await client.connect();
 
   try {

@@ -14,7 +14,7 @@ app.get('/', async (req, res) => {
     const data = await dao.getGeoData();
     res.json(data);
   } catch (error) {
-    res.status(500).json({ error: 'Internal Server Error' });
+    res.status(500).json({ error: `Internal server error: ${error}` });
   }
 });
 
