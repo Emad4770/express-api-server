@@ -24,7 +24,7 @@ app.get('/pipes', async (req, res) => {
   res.setHeader('Expires', '0');
 
   try {
-    const data = await dao.getPipes();
+    const data = await getPipes();
     res.json(data);
   } catch (error) {
     res.status(500).json({ error: `Internal server error: ${error}` });
