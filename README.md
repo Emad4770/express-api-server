@@ -1,14 +1,17 @@
 # SWMS Express API Server
 
 ## Overview
+
 This project implements a RESTful API server using Express.js that serves GeoJSON data from a PostgreSQL database with PostGIS extension. The server converts geospatial data into GeoJSON format for client consumption.
 
 ## Project Structure
+
 - **dao.mjs**: Data Access Object for PostgreSQL interactions
 - **server.mjs**: Express server configuration and routes
 - **output.geojson**: Sample GeoJSON output file
 
 ## Features
+
 - PostgreSQL database connection with PostGIS support
 - GeoJSON data transformation and serving
 - CORS enabled for cross-origin requests
@@ -16,11 +19,13 @@ This project implements a RESTful API server using Express.js that serves GeoJSO
 - Error handling and logging
 
 ## Prerequisites
+
 - Node.js (latest LTS version)
 - PostgreSQL with PostGIS extension
 - npm or yarn package manager
 
 ## Installation
+
 1. Clone the repository
 2. Install dependencies:
    ```bash
