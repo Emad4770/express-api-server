@@ -1,25 +1,22 @@
 # SWMS Express API Server
 
 ## Overview
-
-This project implements a RESTful API server using Express.js that serves GeoJSON data from a PostgreSQL database with PostGIS extension. The server converts geospatial data into GeoJSON format for client consumption.
+This project implements a RESTful API server using Express.js that serves GeoJSON data from a PostgreSQL database with PostGIS extension. The server provides endpoints for accessing both nodes and pipes data in GeoJSON format.
 
 ## Project Structure
-
-- **dao.mjs**: Data Access Object for PostgreSQL interactions
-- **server.mjs**: Express server configuration and routes
-- **output.geojson**: Sample GeoJSON output file
+- [`dao.mjs`](dao.mjs ) - Data Access Object for PostgreSQL interactions
+- [`server.mjs`](server.mjs ) - Express server configuration and routes
+- [`output/`](output/ ) - Directory containing GeoJSON output files
 
 ## Features
-
 - PostgreSQL database connection with PostGIS support
-- GeoJSON data transformation and serving
+- Separate endpoints for nodes and pipes data
+- GeoJSON data transformation
 - CORS enabled for cross-origin requests
 - No-cache headers for real-time data updates
 - Error handling and logging
 
 ## Prerequisites
-
 - Node.js (latest LTS version)
 - PostgreSQL with PostGIS extension
 - npm or yarn package manager
@@ -28,35 +25,30 @@ This project implements a RESTful API server using Express.js that serves GeoJSO
 
 1. Clone the repository
 2. Install dependencies:
-   ```bash
-   npm install
-   ```
-3. Configure database connection in **dao.mjs**
+```bash
+npm install
+```
 
-## Project Components
+3. Configure database connection in [`dao.mjs`](dao.mjs ):
+```javascript
+const connectionParams = {
+  host: '127.0.0.1',
+  port: 5432,
+  user: 'postgres',
+  password: 'admin',
+  database: 'postgres'
+};
+```
 
-### Data Access Object (dao.mjs)
-- Handles database connections using the `pg` module
-- Implements the `getGeoData` function that:
-  - Establishes PostgreSQL connection
-  - Executes PostGIS query to fetch and transform pipe data
-  - Returns GeoJSON FeatureCollection
+## API Endpoints
 
-### Express Server (server.mjs)
-- Configures HTTP server with:
-  - CORS middleware setup
-  - GET endpoint at `/`
-  - Error handling
-  - No-cache headers for real-time data
+### GET /nodes
+Returns GeoJSON data for network nodes (junctions)
 
-## API Usage
+### GET /pipes
+Returns GeoJSON data for network pipes
 
-### GET /
-Returns a GeoJSON FeatureCollection containing:
-- Geometric properties (MultiLineString coordinates)
-- Pipe properties (id, diameter, leak probability)
-
-**Example response:**
+Example response format:
 ```json
 {
   "type": "FeatureCollection",
@@ -64,41 +56,43 @@ Returns a GeoJSON FeatureCollection containing:
     {
       "type": "Feature",
       "geometry": {
-        "type": "MultiLineString",
-        "coordinates": [
-          [[-75.20, 39.95], [-75.21, 39.96]]
-        ]
+        "type": "Point",  // or "LineString" for pipes
+        "coordinates": [...]
       },
       "properties": {
         "id": 1,
-        "diameter": 1000,
-        "leak_probability": 0.05
+        "other_properties": "..."
       }
     }
   ]
 }
 ```
 
+## Project Components
+
+### Data Access Object ([`dao.mjs`](dao.mjs ))
+- Implements two main functions:
+  - [`getNodes()`](dao.mjs ) - Retrieves junction data
+  - [`getPipes()`](dao.mjs ) - Retrieves pipe network data
+
+### Express Server ([`server.mjs`](server.mjs ))
+- Configures HTTP server with:
+  - Two GET endpoints: `/nodes` and `/pipes`
+  - CORS middleware
+  - Error handling
+  - No-cache headers
+
 ## Running the Server
-Start the server:
 ```bash
-npm start
+node server.mjs
 ```
-The server will run on [http://localhost:3000](http://localhost:3000)
+Server runs at `http://localhost:3000`
 
 ## Dependencies
-
-### Main Dependencies
-- `express`: ^4.21.1 - Web server framework
-- `pg`: ^8.13.1 - PostgreSQL client
-- `cors`: ^2.8.5 - Cross-origin resource sharing middleware
-
-### Development Dependencies
-- `nodemon`: ^3.1.7 - Development server with auto-reload
-- `eslint`: ^9.14.0 - Code linting
-- `prettier`: ^3.3.3 - Code formatting
-- Additional ESLint and Prettier configuration packages
+- [`express`](/C:/Users/Emad/AppData/Local/Microsoft/TypeScript/5.6/node_modules/@types/express/index.d.ts ): ^4.21.1
+- [`pg`](/C:/Users/Emad/AppData/Local/Microsoft/TypeScript/5.6/node_modules/@types/pg/index.d.ts ): ^8.13.1
+- [`cors`](/C:/Users/Emad/AppData/Local/Microsoft/TypeScript/5.6/node_modules/@types/cors/index.d.ts ): ^2.8.5
+- Development tools (ESLint, Prettier, nodemon)
 
 ## License
 ISC License
-```
