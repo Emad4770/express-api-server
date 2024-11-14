@@ -1,17 +1,30 @@
 import express from 'express';
-import dao from './dao.mjs';
+import { getNodes, getPipes } from './dao.mjs';
 import cors from 'cors';
 
 const app = express();
 app.use(cors());
 
-app.get('/', async (req, res) => {
+app.get('/nodes', async (req, res) => {
   res.setHeader('Cache-Control', 'no-store');
   res.setHeader('Pragma', 'no-cache');
   res.setHeader('Expires', '0');
 
   try {
-    const data = await dao.getGeoData();
+    const data = await getNodes();
+    res.json(data);
+  } catch (error) {
+    res.status(500).json({ error: `Internal server error: ${error}` });
+  }
+});
+
+app.get('/pipes', async (req, res) => {
+  res.setHeader('Cache-Control', 'no-store');
+  res.setHeader('Pragma', 'no-cache');
+  res.setHeader('Expires', '0');
+
+  try {
+    const data = await dao.getPipes();
     res.json(data);
   } catch (error) {
     res.status(500).json({ error: `Internal server error: ${error}` });
